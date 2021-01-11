@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Chip, Divider } from "@material-ui/core";
+import { Chip, Divider, Paper } from "@material-ui/core";
 import imageCompression from "browser-image-compression";
 import Avatar from "@material-ui/core/Avatar";
 import VideocamRoundedIcon from "@material-ui/icons/VideocamRounded";
@@ -94,7 +94,7 @@ const Form = () => {
   };
 
   return (
-    <div className={classes.upload}>
+    <Paper className={classes.upload}>
       <div className={classes.upload__header}>
         <Avatar src={photoURL} />
         <form className={classes.header__form} onSubmit={handleSubmitButton}>
@@ -124,7 +124,7 @@ const Form = () => {
           <h4>Feeling/Activity</h4>
         </div>
       </div>
-    </div>
+    </Paper>
   );
 };
 

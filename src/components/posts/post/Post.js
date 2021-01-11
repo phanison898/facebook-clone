@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import Avatar from "@material-ui/core/Avatar";
+import Paper from "@material-ui/core/Paper";
 import MoreHorizOutlinedIcon from "@material-ui/icons/MoreHorizOutlined";
 import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
@@ -13,7 +14,7 @@ import Style from "./Style";
 const Post = forwardRef(({ profile, username, timestamp, description, fileType, fileData }, ref) => {
   const classes = Style();
   return (
-    <div ref={ref} className={classes.post}>
+    <Paper elevation={2} ref={ref} className={classes.post}>
       <div className={classes.post__header}>
         <Avatar src={profile} />
         <div className={classes.header__info}>
@@ -50,7 +51,7 @@ const Post = forwardRef(({ profile, username, timestamp, description, fileType, 
           </div>
         </div>
       </div>
-    </div>
+    </Paper>
   );
 });
 

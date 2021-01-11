@@ -1,4 +1,5 @@
 import React from "react";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import { makeStyles } from "@material-ui/core/styles";
 
 const Style = makeStyles((theme) => ({
@@ -31,10 +32,10 @@ const Style = makeStyles((theme) => ({
   },
 }));
 
-const InfoBar = ({ Source, title }) => {
+const InfoBar = ({ Source, title, onClick }) => {
   const classes = Style();
   return (
-    <div className={classes.infobar}>
+    <div className={classes.infobar} onClick={onClick}>
       <div className={classes.infobar__source}>{Source}</div>
       <h4>{title}</h4>
     </div>

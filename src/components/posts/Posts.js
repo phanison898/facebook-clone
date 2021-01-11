@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
 import FlipMove from "react-flip-move";
 import Post from "./post/Post";
 import db from "../../firebase";

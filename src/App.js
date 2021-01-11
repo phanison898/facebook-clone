@@ -1,7 +1,7 @@
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Grid, Hidden } from "@material-ui/core";
+import { Grid, Hidden, Paper } from "@material-ui/core";
 import Login from "./components/login/Login";
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -12,9 +12,8 @@ import Posts from "./components/posts/Posts";
 import Style from "./Style";
 
 const App = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
   const { displayName, photoURL } = useSelector((state) => state.user);
+  const mode = useSelector((state) => state.util);
 
   const [userData, setUserData] = useState({
     username: displayName,
@@ -30,52 +29,54 @@ const App = () => {
 
   const theme = createMuiTheme({
     palette: {
-      type: isDarkMode ? "dark" : "light",
+      type: mode ? "dark" : "light",
     },
   });
   const classes = Style();
   return (
     <ThemeProvider theme={theme}>
-      {!userData.username ? (
-        <Login />
-      ) : (
-        <Grid container className={classes.app}>
-          <Grid item container className={classes.app__header}>
-            {/* ----Header---- */}
-            <Header />
-          </Grid>
-          <Grid item container className={classes.app__body}>
-            {/* ----Body---- */}
-            <Hidden smDown>
-              <Grid item container className={classes.body__left} md={3}>
-                {/* ----Sidebar---- */}
-                <Sidebar />
-              </Grid>
-            </Hidden>
-            <Grid item container className={classes.body__feed} xs={12} sm={8} md={6}>
-              {/* ----Feed---- */}
-              <Grid item container className={classes.feed__stories}>
-                {/* ----Stories---- */}
-                <Stories />
-              </Grid>
-              <Grid item container className={classes.feed__form}>
-                {/* ----Upload Form---- */}
-                <Form />
-              </Grid>
-              <Grid item container className={classes.feed__posts}>
-                {/* ----Posts---- */}
-                <Posts />
-              </Grid>
+      <Paper elevation={0} style={{ borderRadius: 0, width: "100%", height: "100%" }}>
+        {!userData.username ? (
+          <Login />
+        ) : (
+          <Grid className={classes.app}>
+            <Grid item container className={classes.app__header}>
+              {/* ----Header---- */}
+              <Header />
             </Grid>
-            <Hidden smDown>
-              <Grid item container className={classes.body__right} md={3}>
-                {/* ----Right sidebar---- */}
-                <Contacts />
+            <Grid item container className={classes.app__body}>
+              {/* ----Body---- */}
+              <Hidden smDown>
+                <Grid item container className={classes.body__left} md={3}>
+                  {/* ----Sidebar---- */}
+                  <Sidebar />
+                </Grid>
+              </Hidden>
+              <Grid item container className={classes.body__feed} xs={12} sm={8} md={6}>
+                {/* ----Feed---- */}
+                <Grid item container className={classes.feed__stories}>
+                  {/* ----Stories---- */}
+                  <Stories />
+                </Grid>
+                <Grid item container className={classes.feed__form}>
+                  {/* ----Upload Form---- */}
+                  <Form />
+                </Grid>
+                <Grid item container className={classes.feed__posts}>
+                  {/* ----Posts---- */}
+                  <Posts />
+                </Grid>
               </Grid>
-            </Hidden>
+              <Hidden smDown>
+                <Grid item container className={classes.body__right} md={3}>
+                  {/* ----Right sidebar---- */}
+                  <Contacts />
+                </Grid>
+              </Hidden>
+            </Grid>
           </Grid>
-        </Grid>
-      )}
+        )}
+      </Paper>
     </ThemeProvider>
   );
 };

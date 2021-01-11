@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
   app: {},
   app__header: {
     height: "8vh",
-    boxShadow: "0px 5px 17px -10px rgba(0,0,0,0.75)",
+    borderBottom: "1px solid rgba(212, 212, 212,0.2)",
     zIndex: 100,
   },
   app__body: {

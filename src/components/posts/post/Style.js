@@ -8,8 +8,8 @@ export default makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     marginTop: 10,
-    borderRadius: 10,
-    boxShadow: "0px 5px 10px -7px rgba(0,0,0,0.75)",
+    //borderRadius: 10,
+    //boxShadow: "0px 5px 10px -7px rgba(0,0,0,0.75)",
   },
   post__header: {
     width: "100%",
@@ -36,6 +36,14 @@ export default makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     marginLeft: 10,
+    "& > h4": {
+      fontSize: 18,
+      fontWeight: 700,
+    },
+    "& > p": {
+      color: "grey",
+      fontSize: 12,
+    },
   },
   post__body: {
     width: "100%",
@@ -76,6 +84,9 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     paddingBottom: 10,
     borderBottom: "1px solid lightgrey",
+    "& > .MuiSvgIcon-root": {
+      fontSize: 16,
+    },
   },
   footer__actions: {
     display: "flex",
@@ -93,6 +104,7 @@ export default makeStyles((theme) => ({
     borderRadius: 4,
     cursor: "pointer",
     transition: "all 0.3s ease",
+    color: "grey",
     "&:hover": {
       backgroundColor: "lightgrey",
     },

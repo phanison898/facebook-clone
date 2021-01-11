@@ -71,6 +71,9 @@ export default makeStyles((theme) => ({
     },
     "& >h4": {
       marginLeft: 10,
+      [theme.breakpoints.down("sm")]: {
+        display: "none",
+      },
     },
   },
 }));

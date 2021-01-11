@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
 import { ProfilePic } from "../../images/images";
 import Story from "./Story";
 import Style from "./Style";

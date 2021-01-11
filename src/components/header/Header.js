@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Grid, Hidden, Avatar, Tooltip, Paper } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { Home, HomeOutlined } from "@material-ui/icons";
@@ -6,15 +7,27 @@ import { PlayCircleFilledWhite, PlayCircleFilledWhiteOutlined } from "@material-
 import { Store, StoreMallDirectoryOutlined } from "@material-ui/icons";
 import { SupervisedUserCircle, SupervisedUserCircleOutlined } from "@material-ui/icons";
 import { SportsEsports, SportsEsportsOutlined } from "@material-ui/icons";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
 import ArrowDropDownRoundedIcon from "@material-ui/icons/ArrowDropDownRounded";
 import AddIcon from "@material-ui/icons/Add";
 import TelegramIcon from "@material-ui/icons/Telegram";
 import Zoom from "@material-ui/core/Zoom";
 import logo from "../../images/logo.png";
+import { ToggleTheme } from "../../store/actions/util";
 import Style from "./Style";
+
 const Header = () => {
   const classes = Style();
+  const dispatch = useDispatch();
+  const mode = useSelector((state) => state.util);
+  const { photoURL, displayName } = useSelector((state) => state.user);
+
+  const changeTheme = () => {
+    dispatch(ToggleTheme());
+  };
+
   return (
     <Paper elevation={0} style={{ borderRadius: 0, width: "100%", height: "100%" }}>
       <Grid container className={classes.header}>
@@ -34,12 +47,12 @@ const Header = () => {
           <PlayCircleFilledWhiteOutlined fontSize="large" />
           <StoreMallDirectoryOutlined fontSize="large" />
           <SupervisedUserCircleOutlined fontSize="large" />
-          <SportsEsportsOutlined fontSize="large" />
+          {mode ? <Brightness4Icon fontSize="large" onClick={changeTheme} /> : <BrightnessHighIcon fontSize="large" onClick={changeTheme} />}
         </Grid>
         {/*----Userinfo and options--------*/}
         <Grid item className={classes.header__userinfo} xs={1} sm={2} md={3}>
-          <Tooltip placement="left" TransitionComponent={Zoom} TransitionProps={{ timeout: 300 }} title="phanison" arrow>
-            <Avatar>P</Avatar>
+          <Tooltip placement="left" TransitionComponent={Zoom} TransitionProps={{ timeout: 300 }} title={displayName} arrow>
+            <Avatar src={photoURL} />
           </Tooltip>
           <Hidden smDown>
             <div className={classes.userinfo__options}>
