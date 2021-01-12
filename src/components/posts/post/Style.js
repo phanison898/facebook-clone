@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { darkPrimary, darkSecondary, lightPrimary } from "../../../assets/Colors";
 
 export default makeStyles((theme) => ({
   post: {
@@ -8,8 +9,7 @@ export default makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     marginTop: 10,
-    //borderRadius: 10,
-    //boxShadow: "0px 5px 10px -7px rgba(0,0,0,0.75)",
+    backgroundColor: theme.palette.type === "dark" && darkPrimary,
   },
   post__header: {
     width: "100%",
@@ -83,9 +83,17 @@ export default makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     paddingBottom: 10,
-    borderBottom: "1px solid lightgrey",
-    "& > .MuiSvgIcon-root": {
-      fontSize: 16,
+    borderBottom: `1px solid ${theme.palette.type === "dark" ? darkSecondary : "lightgrey"}`,
+    "& > div": {
+      display: "flex",
+      "& > .MuiSvgIcon-root": {
+        fontSize: 16,
+      },
+    },
+    "& > h4": {
+      fontSize: 14,
+      marginLeft: 2,
+      fontWeight: 500,
     },
   },
   footer__actions: {
@@ -104,9 +112,14 @@ export default makeStyles((theme) => ({
     borderRadius: 4,
     cursor: "pointer",
     transition: "all 0.3s ease",
-    color: "grey",
+    color: theme.palette.type === "dark" ? "lightgrey" : darkSecondary,
     "&:hover": {
-      backgroundColor: "lightgrey",
+      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+    },
+    [theme.breakpoints.down("xs")]: {
+      "&:hover": {
+        backgroundColor: "transparent",
+      },
     },
     "& > h4": {
       marginLeft: 4,

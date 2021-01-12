@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { lightPrimary } from "../../assets/Colors";
 
 export default makeStyles((theme) => ({
   contacts: {
@@ -12,6 +13,7 @@ export default makeStyles((theme) => ({
     borderRadius: 0,
     overflowY: "auto",
     overflowX: "hidden",
+    backgroundColor: theme.palette.type === "light" && lightPrimary,
   },
   contacts__tab: {
     display: "flex",

@@ -1,11 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { darkSecondary, darkPrimary } from "../../assets/Colors";
 
 export default makeStyles((theme) => ({
   header: {
     widows: "100%",
     height: "100%",
+    backgroundColor: theme.palette.type === "dark" && darkPrimary,
   },
   header__logo: {
+    height: "100%",
     display: "flex",
     justifyContent: "flex-start",
     alignItems: "center",
@@ -24,7 +27,7 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     marginLeft: 10,
     padding: 6,
-    backgroundColor: "lightgrey",
+    backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     borderRadius: 999,
     flexShrink: 1,
     "& > input": {
@@ -32,27 +35,55 @@ export default makeStyles((theme) => ({
       outlineWidth: 0,
       border: 0,
       backgroundColor: "transparent",
+      color: theme.palette.type === "dark" && "lightgrey",
+      "&::placeholder": {
+        color: theme.palette.type === "dark" && "lightgrey",
+      },
     },
   },
   header__nav: {
     display: "flex",
+    height: "100%",
     justifyContent: "space-evenly",
     alignItems: "center",
-    padding: 4,
+    padding: "4px 60px",
+    [theme.breakpoints.down("md")]: {
+      padding: "4px 30px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: "4px 10px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: 4,
+    },
     color: "grey",
+  },
+
+  nav__links: {
+    flex: 1,
+    display: "flex",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 8,
+    cursor: "pointer",
+    transition: "all 0.5s ease",
+    color: theme.palette.type === "dark" && "lightgrey",
     "& > .MuiSvgIcon-root": {
-      [theme.breakpoints.up("sm")]: {
-        flex: 1,
-      },
-      borderRadius: 8,
-      cursor: "pointer",
-      transition: "all 0.5s ease",
+      fontSize: 30,
+    },
+    "&:hover": {
+      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+    },
+    [theme.breakpoints.down("xs")]: {
       "&:hover": {
-        backgroundColor: "lightgrey",
+        backgroundColor: "transparent",
       },
     },
   },
+
   header__userinfo: {
+    height: "100%",
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
@@ -69,20 +100,21 @@ export default makeStyles((theme) => ({
   },
   userinfo__options: {
     flex: 0.8,
+    height: "100%",
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "center",
     marginLeft: 10,
-    color: "grey",
+    color: theme.palette.type === "dark" ? "lightgrey" : "grey",
     "& > .MuiSvgIcon-root": {
       borderRadius: 999,
       cursor: "pointer",
-      fontSize: 36,
+      fontSize: 30,
       [theme.breakpoints.down("md")]: {
-        fontSize: 28,
+        fontSize: 24,
       },
-      backgroundColor: "lightgrey",
-      transition: "all 0.5s ease",
+      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+      transition: "all 0.3s ease",
       "&:hover": {
         backgroundColor: "grey",
         color: "white",

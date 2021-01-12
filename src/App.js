@@ -35,7 +35,7 @@ const App = () => {
   const classes = Style();
   return (
     <ThemeProvider theme={theme}>
-      <Paper elevation={0} style={{ borderRadius: 0, width: "100%", height: "100%" }}>
+      <Paper elevation={0} className={classes.root}>
         {!userData.username ? (
           <Login />
         ) : (

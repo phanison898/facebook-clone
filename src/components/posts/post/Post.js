@@ -13,8 +13,22 @@ import Style from "./Style";
 
 const Post = forwardRef(({ profile, username, timestamp, description, fileType, fileData }, ref) => {
   const classes = Style();
+
+  const Reactions = () => {
+    return (
+      <div className={classes.footer__stats}>
+        <div>
+          <FavoriteIcon style={{ color: "red", order: `${Math.floor(Math.random() * (3 - 1 + 1)) + 1} ` }} />
+          <EmojiEmotionsIcon style={{ color: "orange", order: `${Math.floor(Math.random() * (3 - 1 + 1)) + 1} ` }} />
+          <ThumbUpAltIcon style={{ color: " #2e81f4", order: `${Math.floor(Math.random() * (3 - 1 + 1)) + 1} ` }} />
+        </div>
+        <h4>{Math.floor(Math.random() * 1000) + 1}</h4>
+      </div>
+    );
+  };
+
   return (
-    <Paper elevation={2} ref={ref} className={classes.post}>
+    <Paper ref={ref} className={classes.post}>
       <div className={classes.post__header}>
         <Avatar src={profile} />
         <div className={classes.header__info}>
@@ -30,12 +44,7 @@ const Post = forwardRef(({ profile, username, timestamp, description, fileType, 
         {fileData && <div className={classes.body__image}>{fileType === "image" ? <img src={fileData} /> : <ReactPlayer url={fileData} controls={true} />}</div>}
       </div>
       <div className={classes.post__footer}>
-        <div className={classes.footer__stats}>
-          <FavoriteIcon style={{ color: "red", zIndex: 1 }} />
-          <EmojiEmotionsIcon style={{ color: "orange", zIndex: 2 }} />
-          <ThumbUpAltIcon style={{ color: " #2e81f4", zIndex: 3 }} />
-          <h4>8</h4>
-        </div>
+        <Reactions />
         <div className={classes.footer__actions}>
           <div className={classes.action__icons}>
             <ThumbUpAltOutlinedIcon />
@@ -46,7 +55,7 @@ const Post = forwardRef(({ profile, username, timestamp, description, fileType, 
             <h4>Comment</h4>
           </div>
           <div className={classes.action__icons}>
-            <ReplyOutlinedIcon />
+            <ReplyOutlinedIcon style={{ transform: "scaleX(-1)" }} />
             <h4>Share</h4>
           </div>
         </div>

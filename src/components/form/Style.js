@@ -1,17 +1,19 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { darkPrimary, darkSecondary, FacebookBlue } from "../../assets/Colors";
 
 export default makeStyles((theme) => ({
   upload: {
     width: "100%",
-    height: "100%",
+    height: "auto",
     display: "flex",
     flexDirection: "column",
+    marginTop: 10,
     padding: "0 10px",
     borderRadius: 10,
-    boxShadow: "0px 5px 17px -10px rgba(0,0,0,0.7)",
+    backgroundColor: theme.palette.type === "dark" && darkPrimary,
   },
   upload__header: {
-    flex: 6,
+    height: "80px",
     display: "flex",
     alignItems: "center",
   },
@@ -22,15 +24,20 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     marginLeft: 10,
     borderRadius: 999,
-    backgroundColor: "lightgrey",
+    backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     overflow: "hidden",
+    [theme.palette.type === "light"]: {},
     "& > input": {
       height: "100%",
       flex: 1,
       border: 0,
       outlineWidth: 0,
       paddingLeft: 10,
+      color: theme.palette.type === "dark" && "lightgrey",
       backgroundColor: "transparent",
+      "&::placeholder": {
+        color: theme.palette.type === "dark" && "lightgrey",
+      },
     },
     "& > button": {
       height: "100%",
@@ -39,7 +46,7 @@ export default makeStyles((theme) => ({
       padding: "0 10px",
       border: 0,
       outlineWidth: 0,
-      backgroundColor: "#2e81f4",
+      backgroundColor: FacebookBlue,
       color: "white",
       cursor: "pointer",
       fontWeight: 600,
@@ -52,24 +59,25 @@ export default makeStyles((theme) => ({
     paddingLeft: 60,
   },
   upload__media: {
-    flex: 4,
+    height: "50px",
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "center",
-    margin: "0 10px",
+    padding: "2px 0",
   },
   media__options: {
     flex: 1,
+    height: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     cursor: "pointer",
-    borderRadius: 10,
+    borderRadius: 4,
     transition: "all 0.4s ease",
     "&:hover": {
-      backgroundColor: "lightgrey",
+      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     },
-    "& >h4": {
+    "& > h4": {
       marginLeft: 10,
       [theme.breakpoints.down("sm")]: {
         display: "none",

@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { lightPrimary } from "../../assets/Colors";
 
 export default makeStyles((theme) => ({
   sidebar: {
@@ -10,5 +11,6 @@ export default makeStyles((theme) => ({
     alignItems: "flex-start",
     padding: "0 8",
     borderRadius: 0,
+    backgroundColor: theme.palette.type === "light" && lightPrimary,
   },
 }));

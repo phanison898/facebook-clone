@@ -28,29 +28,18 @@ const Sidebar = () => {
         {/* User info */}
         <InfoBar Source={<Avatar src={photoURL} />} title={displayName} />
         {/* Top item */}
-        <InfoBar Source={<Avatar src={FacebookPages} />} title={"Pages"} />
-        <InfoBar Source={<Avatar src={FacebookCovid} />} title={"Covid Information Center"} />
-        <InfoBar Source={<Avatar src={FacebookFriends} />} title={"Friends"} />
-        <InfoBar Source={<Avatar src={FacebookGroups} />} title={"Groups"} />
-        <InfoBar Source={<Avatar src={FacebookMarketplace} />} title={"Marketplace"} />
-        {/* Bottom item */}
+        {topRows.map(({ src, title }) => (
+          <InfoBar Source={<Avatar src={src} />} title={title} transform={true} />
+        ))}
+        {/* Bottom items (display only when clicks show more button) */}
         {open && (
           <>
-            <InfoBar Source={<Avatar src={FacebookAdCenter} />} title={"Ad Center"} />
-            <InfoBar Source={<Avatar src={FacebookAdsManager} />} title={"Ads Manager"} />
-            <InfoBar Source={<Avatar src={FacebookBloodDonation} />} title={"Blood Donation"} />
-            <InfoBar Source={<Avatar src={FacebookBuyAndSell} />} title={"Buy and Cell"} />
-            <InfoBar Source={<Avatar src={FacebookCrisis} />} title={"Crisis Response"} />
-            <InfoBar Source={<Avatar src={FacebookEvents} />} title={"Events"} />
-            <InfoBar Source={<Avatar src={FacebookFavourites} />} title={"Favourites"} />
-            <InfoBar Source={<Avatar src={FacebookFilms} />} title={"Films"} />
-            <InfoBar Source={<Avatar src={FacebookFriendList} />} title={"Friend List"} />
-            <InfoBar Source={<Avatar src={FacebookFundrisers} />} title={"Fundrisers"} />
-            <InfoBar Source={<Avatar src={FacebookGames} />} title={"Games"} />
-            <InfoBar Source={<Avatar src={FacebookGameVideos} />} title={"Game Videos"} />
+            {bottomRows.map(({ src, title }) => (
+              <InfoBar Source={<Avatar src={src} />} title={title} />
+            ))}
           </>
         )}
-        {/* Toggle button */}
+        {/* Toggle button (show more /show less) */}
         <InfoBar
           Source={
             <Avatar>
@@ -60,15 +49,49 @@ const Sidebar = () => {
           title={open ? "See Less" : "See More"}
           onClick={toggle}
         />
+
         <Divider style={{ margin: "5px 10px" }} />
+
+        {/* Your links section */}
         <h4 style={{ margin: "10px 10px" }}>Your short cuts</h4>
-        <InfoBar Source={<Avatar src={ReactNative} />} title={"React Native Developer Community"} />
-        <InfoBar Source={<Avatar src={ReactJs} />} title={"React.JS developers -2021"} />
-        <InfoBar Source={<Avatar src={NodeJs} />} title={"NodeJS developers"} />
-        <InfoBar Source={<Avatar src={Javascript} />} title={"Javascript"} />
+        <>
+          {yourLinks.map(({ src, title }) => (
+            <InfoBar Source={<Avatar src={src} />} title={title} />
+          ))}
+        </>
       </Scrollbars>
     </Paper>
   );
 };
+
+const topRows = [
+  { src: FacebookPages, title: "Pages" },
+  { src: FacebookCovid, title: "Covid Information Center" },
+  { src: FacebookFriends, title: "Friends" },
+  { src: FacebookGroups, title: "Groups" },
+  { src: FacebookMarketplace, title: "Marketplace" },
+];
+
+const bottomRows = [
+  { src: FacebookAdCenter, title: "Ad Center" },
+  { src: FacebookAdsManager, title: "Ads Manager" },
+  { src: FacebookBloodDonation, title: "Blood Donation" },
+  { src: FacebookBuyAndSell, title: "Buy and Cell" },
+  { src: FacebookCrisis, title: "Crisis Response" },
+  { src: FacebookEvents, title: "Events" },
+  { src: FacebookFavourites, title: "Favourites" },
+  { src: FacebookFilms, title: "Films" },
+  { src: FacebookFriendList, title: "Friend List" },
+  { src: FacebookFundrisers, title: "Fundrisers" },
+  { src: FacebookGames, title: "Games" },
+  { src: FacebookGameVideos, title: "Game Videos" },
+];
+
+const yourLinks = [
+  { src: ReactNative, title: "React Native Developer Community" },
+  { src: ReactJs, title: "React.JS developers -2021" },
+  { src: NodeJs, title: "NodeJS developers" },
+  { src: Javascript, title: "Javascript" },
+];
 
 export default Sidebar;

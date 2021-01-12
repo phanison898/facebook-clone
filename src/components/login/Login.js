@@ -1,11 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import Logo from "../../images/logo.png";
-import TextLogo from "../../images/fb_text.png";
-import { auth, provider } from "../../firebase";
+import Button from "@material-ui/core/Button";
 import { LoginAction } from "../../store/actions/auth";
+import { auth, provider } from "../../firebase";
+import TextLogo from "../../images/fb_text.png";
+import Logo from "../../images/logo.png";
+import { FacebookBlue } from "../../assets/Colors";
 
 const Login = () => {
   const classes = Style();
@@ -39,7 +40,7 @@ const Style = makeStyles((theme) => ({
       margin: 20,
     },
     "& >.MuiButtonBase-root": {
-      backgroundColor: "#2e81f4",
+      backgroundColor: FacebookBlue,
       color: "white",
       transition: "all 0.3s ease",
     },

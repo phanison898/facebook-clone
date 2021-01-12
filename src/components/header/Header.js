@@ -1,12 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Grid, Hidden, Avatar, Tooltip, Paper } from "@material-ui/core";
+import { Grid, Hidden, Avatar, Tooltip, Paper, Badge } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import { Home, HomeOutlined } from "@material-ui/icons";
-import { PlayCircleFilledWhite, PlayCircleFilledWhiteOutlined } from "@material-ui/icons";
-import { Store, StoreMallDirectoryOutlined } from "@material-ui/icons";
-import { SupervisedUserCircle, SupervisedUserCircleOutlined } from "@material-ui/icons";
-import { SportsEsports, SportsEsportsOutlined } from "@material-ui/icons";
+import { HomeOutlined } from "@material-ui/icons";
+import { PlayCircleFilledWhiteOutlined } from "@material-ui/icons";
+import { StoreMallDirectoryOutlined } from "@material-ui/icons";
+import { SupervisedUserCircleOutlined } from "@material-ui/icons";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
@@ -43,11 +42,21 @@ const Header = () => {
         </Grid>
         {/*----Nav-Bar--------*/}
         <Grid item className={classes.header__nav} xs={10} sm={8} md={6}>
-          <HomeOutlined fontSize="large" />
-          <PlayCircleFilledWhiteOutlined fontSize="large" />
-          <StoreMallDirectoryOutlined fontSize="large" />
-          <SupervisedUserCircleOutlined fontSize="large" />
-          {mode ? <Brightness4Icon fontSize="large" onClick={changeTheme} /> : <BrightnessHighIcon fontSize="large" onClick={changeTheme} />}
+          <div className={classes.nav__links}>
+            <HomeOutlined />
+          </div>
+          <div className={classes.nav__links}>
+            <PlayCircleFilledWhiteOutlined />
+          </div>
+          <div className={classes.nav__links}>
+            <StoreMallDirectoryOutlined />
+          </div>
+          <div className={classes.nav__links}>
+            <SupervisedUserCircleOutlined />
+          </div>
+          <div className={classes.nav__links} onClick={changeTheme}>
+            {mode ? <Brightness4Icon /> : <BrightnessHighIcon />}
+          </div>
         </Grid>
         {/*----Userinfo and options--------*/}
         <Grid item className={classes.header__userinfo} xs={1} sm={2} md={3}>
@@ -58,7 +67,8 @@ const Header = () => {
             <div className={classes.userinfo__options}>
               <AddIcon />
               <TelegramIcon />
-              <NotificationsNoneOutlinedIcon />
+              <Badge badgeContent={10} max={9} {...defaultProps} />
+
               <ArrowDropDownRoundedIcon />
             </div>
           </Hidden>
@@ -66,6 +76,11 @@ const Header = () => {
       </Grid>
     </Paper>
   );
+};
+
+const defaultProps = {
+  color: "secondary",
+  children: <NotificationsNoneOutlinedIcon />,
 };
 
 export default Header;

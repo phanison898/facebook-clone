@@ -1,8 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { blue, green, red } from "@material-ui/core/colors";
 
 export default makeStyles((theme) => ({
-  app: {},
+  root: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 0,
+  },
   app__header: {
     height: "8vh",
     borderBottom: "1px solid rgba(212, 212, 212,0.2)",
@@ -41,7 +44,7 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       width: "100%",
     },
-    height: "35%",
+    height: "220px",
     overflow: "hidden",
   },
 
@@ -56,7 +59,7 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       width: "100%",
     },
-    height: "20%",
+    height: "auto",
   },
 
   feed__posts: {

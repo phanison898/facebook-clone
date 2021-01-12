@@ -16,9 +16,6 @@ const Contacts = () => {
         <Divider />
         <div className={classes.contacts__tab}>
           <h4>Your Pages</h4>
-          {/* <Avatar style={{ position: "relative" }}>
-            <FiberManualRecordIcon style={{ color: "green", position: "absolute", bottom: 3, right: 3, fontSize: 14 }} />
-          </Avatar> */}
           <MoreHorizIcon />
         </div>
         <Divider />
@@ -36,6 +33,10 @@ const Contacts = () => {
               </Tooltip>
             }
             title={username}
+            online={true}
+            lastSeen={n % 3 === 0 && `${n} h`}
+            lastSeen={Math.floor(Math.random() * (3 - 1 + 1)) + 1 === 2 && `${Math.floor(Math.random() * 10) + 1} h`}
+            noTransform={true}
           />
         ))}
       </Scrollbars>

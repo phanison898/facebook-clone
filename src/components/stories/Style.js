@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { FacebookBlue } from "../../assets/Colors";
 
 const Style = makeStyles((theme) => ({
   stories: {
@@ -11,7 +12,7 @@ const Style = makeStyles((theme) => ({
   },
   story: {
     position: "relative",
-    minWidth: "120px",
+    minWidth: "100px",
     height: "90%",
     margin: "0 5px",
     borderRadius: "10px",
@@ -34,7 +35,7 @@ const Style = makeStyles((theme) => ({
   },
   profilePic: {
     margin: "5px",
-    border: "5px solid #2e81f4",
+    border: `5px solid ${FacebookBlue}`,
   },
 }));
 

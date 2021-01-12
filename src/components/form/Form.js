@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Chip, Divider, Paper } from "@material-ui/core";
+import { Chip, Paper, useTheme, Divider } from "@material-ui/core";
 import imageCompression from "browser-image-compression";
 import Avatar from "@material-ui/core/Avatar";
 import VideocamRoundedIcon from "@material-ui/icons/VideocamRounded";
@@ -12,6 +12,7 @@ import Styles from "./Style";
 
 const Form = () => {
   const classes = Styles();
+  const theme = useTheme();
   const { displayName, photoURL } = useSelector((state) => state.user);
 
   const [uploadData, setUploadData] = useState({
@@ -26,18 +27,17 @@ const Form = () => {
   const handleSubmitButton = (e) => {
     e.preventDefault();
     // firebase logic
-    if (uploadData.description) {
-      db.collection("posts")
-        .add({
-          profile: photoURL,
-          username: displayName,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          description: uploadData.description,
-          fileType: uploadData.file.type,
-          fileName: uploadData.file.name,
-          fileData: uploadData.file.data,
-        })
-        .then(() => resetState());
+    if (uploadData.description || uploadData.file.data) {
+      db.collection("posts").add({
+        profile: photoURL,
+        username: displayName,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        description: uploadData.description,
+        fileType: uploadData.file.type,
+        fileName: uploadData.file.name,
+        fileData: uploadData.file.data,
+      });
+      resetState();
     } else {
       alert("please enter something..");
     }
@@ -114,6 +114,7 @@ const Form = () => {
         <div className={classes.media__options}>
           <VideocamRoundedIcon style={{ color: "red" }} />
           <h4>Live video</h4>
+          {console.log(theme.palette.type)}
         </div>
         <label htmlFor="upload-image" className={classes.media__options}>
           <PhotoRoundedIcon style={{ color: "green" }} />

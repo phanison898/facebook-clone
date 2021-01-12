@@ -7,21 +7,9 @@ const Stories = () => {
   const classes = Style();
   return (
     <div className={classes.stories}>
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
-      <Story bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+        <Story key={i} bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
+      ))}
     </div>
   );
 };
