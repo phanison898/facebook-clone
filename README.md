@@ -9,7 +9,7 @@ This projects deals with re-building the facebook application from scratch using
 
 ### Preview
 
-<img width="100%"  src="https://media.giphy.com/media/Ll6HMPzqCE2mTzHv5J/giphy.gif" />
+<img width="100%" src="https://media.giphy.com/media/QefKwktnnZIuNh5Nei/giphy.gif" />
 
 ### Technical stack
 
