@@ -11,6 +11,9 @@ export default makeStyles((theme) => ({
     padding: "0 10px",
     borderRadius: 10,
     backgroundColor: theme.palette.type === "dark" && darkPrimary,
+    [theme.breakpoints.down("xs")]: {
+      borderRadius: 0,
+    },
   },
   upload__header: {
     height: "80px",

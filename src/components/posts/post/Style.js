@@ -10,6 +10,9 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     marginTop: 10,
     backgroundColor: theme.palette.type === "dark" && darkPrimary,
+    [theme.breakpoints.down("xs")]: {
+      borderRadius: 0,
+    },
   },
   post__header: {
     width: "100%",
@@ -121,8 +124,16 @@ export default makeStyles((theme) => ({
         backgroundColor: "transparent",
       },
     },
+    "& > .MuiSvgIcon-root": {
+      [theme.breakpoints.down("xs")]: {
+        fontSize: 13,
+      },
+    },
     "& > h4": {
       marginLeft: 4,
+      [theme.breakpoints.down("xs")]: {
+        fontSize: 11,
+      },
     },
   },
 }));
