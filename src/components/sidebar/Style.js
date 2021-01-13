@@ -13,4 +13,20 @@ export default makeStyles((theme) => ({
     borderRadius: 0,
     backgroundColor: theme.palette.type === "light" && lightPrimary,
   },
+  about__author: {
+    display: "flex",
+    alignItems: "center",
+    padding: 10,
+    paddingTop: 5,
+    "& > div": {
+      flex: 1,
+      display: "flex",
+      justifyContent: "space-evenly",
+      alignItems: "center",
+      marginTop: 10,
+      "& > a": {
+        color: "grey",
+      },
+    },
+  },
 }));

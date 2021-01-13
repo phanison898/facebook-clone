@@ -53,9 +53,8 @@ const Form = () => {
         uploadTask.on(
           "state_changed",
           (snapshot) => {
-            const value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            const value = Math.floor((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
             setProgress(value);
-            console.log(value);
           },
 
           (error) => {
@@ -81,10 +80,23 @@ const Form = () => {
     }
   };
 
+  // if file name is too long.. compress it
+  const fileNameCompressor = (str, limit) => {
+    let fileName = str;
+    const arr = str.split(".");
+    const name = arr[0];
+    const ext = arr[arr.length - 1];
+
+    if (name.length > limit) {
+      fileName = name.substring(0, limit).trim() + "... ." + ext;
+    }
+    return fileName;
+  };
+
   const imageUploadHandler = async (e) => {
     const inputFile = e.target.files[0];
     const inputFileType = inputFile.type.split("/")[0];
-    const inputFileName = inputFile.name;
+    const inputFileName = fileNameCompressor(inputFile.name, 20);
 
     const fileSize = inputFile.size / (1024 * 1024);
 
@@ -131,6 +143,9 @@ const Form = () => {
       };
       file.readAsDataURL(compressedInputFile);
     }
+
+    // clear the file input event value
+    e.target.value = "";
   };
 
   const resetState = () => {
@@ -155,12 +170,19 @@ const Form = () => {
           <button type="submit">Post</button>
         </form>
       </div>
-      {uploadData.file.name && (
+      {uploadData.file.name && !progress && (
         <div className={classes.selectedFile}>
           <Chip color="primary" size="small" onDelete={resetState} icon={uploadData.file.type === "image" ? <PhotoRoundedIcon /> : <VideocamRoundedIcon />} label={uploadData.file.name} />
         </div>
       )}
-      {progress ? <LinearProgress variant="determinate" value={progress} /> : ""}
+      {progress ? (
+        <div className={classes.uploading}>
+          <LinearProgress variant="determinate" value={progress} className={classes.progress} />
+          <p>{progress} %</p>
+        </div>
+      ) : (
+        ""
+      )}
       <Divider />
 
       <div className={classes.upload__media}>

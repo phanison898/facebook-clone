@@ -3,6 +3,11 @@ import { useSelector } from "react-redux";
 import { Avatar, Paper, Divider } from "@material-ui/core";
 import { Scrollbars } from "react-custom-scrollbars";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import TwitterIcon from "@material-ui/icons/Twitter";
 import { FacebookPages, FacebookCovid, FacebookFriends, FacebookGroups, FacebookMarketplace } from "../../images/images";
 import { FacebookAdCenter, FacebookAdsManager, FacebookBloodDonation, FacebookBuyAndSell } from "../../images/images";
 import { FacebookCrisis, FacebookEvents, FacebookFavourites, FacebookFilms } from "../../images/images";
@@ -10,6 +15,7 @@ import { FacebookFriendList, FacebookFundrisers, FacebookGames, FacebookGameVide
 import { ReactNative, ReactJs, NodeJs, Javascript } from "../../images/images";
 import InfoBar from "../util/InfoBar";
 import Style from "./Style";
+import { YoutubeSearchedFor } from "@material-ui/icons";
 
 const Sidebar = () => {
   const classes = Style();
@@ -60,10 +66,32 @@ const Sidebar = () => {
             <InfoBar key={i} Source={<Avatar src={src} />} title={title} />
           ))}
         </>
+
+        <Divider style={{ margin: "5px 10px" }} />
+
+        {/* About Author */}
+        <div className={classes.about__author}>
+          <h4>Contact Author</h4>
+          <div>
+            {author.map(({ src, url }) => (
+              <a href={`${url}`} target="_blank">
+                {src}
+              </a>
+            ))}
+          </div>
+        </div>
       </Scrollbars>
     </Paper>
   );
 };
+
+const author = [
+  { src: <GitHubIcon />, url: "https://github.com/phanison898" },
+  { src: <LinkedInIcon />, url: "https://www.linkedin.com/in/phanison225/" },
+  { src: <YouTubeIcon />, url: "https://www.youtube.com/channel/UC4FAldAo2Ow_2F447yggcqA" },
+  { src: <InstagramIcon />, url: "https://www.instagram.com/phanison225/" },
+  { src: <TwitterIcon />, url: "https://twitter.com/phanison225" },
+];
 
 const topRows = [
   { src: FacebookPages, title: "Pages" },

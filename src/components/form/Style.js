@@ -59,7 +59,26 @@ export default makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     paddingBottom: 10,
-    paddingLeft: 60,
+    paddingLeft: 52,
+  },
+  uploading: {
+    display: "flex",
+    alignItems: "center",
+    marginBottom: 10,
+    "& > p": {
+      fontSize: 12,
+      fontWeight: 600,
+    },
+  },
+  progress: {
+    flex: 1,
+    height: 8,
+    marginRight: 5,
+    borderRadius: 10,
+    backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+    "& > *": {
+      backgroundColor: FacebookBlue,
+    },
   },
   upload__media: {
     height: "50px",

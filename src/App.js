@@ -1,7 +1,7 @@
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Grid, Hidden, Paper } from "@material-ui/core";
+import { Grid, Hidden, Paper, useTheme } from "@material-ui/core";
 import Login from "./components/login/Login";
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -11,16 +11,18 @@ import Form from "./components/form/Form";
 import Posts from "./components/posts/Posts";
 import { LoginAction, LogoutAction } from "./store/actions/auth";
 import { auth } from "./firebase";
+import { lightPrimary } from "./assets/Colors";
 import Style from "./Style";
 
 const App = () => {
   const dispatch = useDispatch();
+  const theme = useTheme();
 
   const { displayName } = useSelector((state) => state.user);
 
   const mode = useSelector((state) => state.util);
 
-  const theme = createMuiTheme({
+  const muiTheme = createMuiTheme({
     palette: {
       type: mode ? "dark" : "light",
     },
@@ -38,8 +40,8 @@ const App = () => {
 
   const classes = Style();
   return (
-    <ThemeProvider theme={theme}>
-      <Paper elevation={0} className={classes.root}>
+    <ThemeProvider theme={muiTheme}>
+      <Paper elevation={0} className={classes.root} style={{ backgroundColor: !mode && lightPrimary }}>
         {!displayName ? (
           <Login />
         ) : (

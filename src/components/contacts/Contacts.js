@@ -3,7 +3,6 @@ import { Avatar, Tooltip, Paper, Divider } from "@material-ui/core";
 import { Scrollbars } from "react-custom-scrollbars";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import InfoBar from "../util/InfoBar";
 import Style from "./Style";
 
@@ -34,7 +33,6 @@ const Contacts = () => {
             }
             title={username}
             online={true}
-            lastSeen={n % 3 === 0 && `${n} h`}
             lastSeen={Math.floor(Math.random() * (3 - 1 + 1)) + 1 === 2 && `${Math.floor(Math.random() * 10) + 1} h`}
             noTransform={true}
           />

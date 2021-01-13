@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import MoreHorizOutlinedIcon from "@material-ui/icons/MoreHorizOutlined";
@@ -14,15 +14,27 @@ import Style from "./Style";
 const Post = forwardRef(({ profile, username, timestamp, description, fileType, fileData }, ref) => {
   const classes = Style();
 
+  const [likesCount, setLikesCount] = useState(1);
+  const [heartIcontOrder, setHeartIcontOrder] = useState(1);
+  const [smileIconOrder, setSmileIconOrder] = useState(1);
+  const [thumsUpIconOrder, setThumsUpIconOrder] = useState(1);
+
+  useEffect(() => {
+    setLikesCount(Math.floor(Math.random() * 1000) + 1);
+    setHeartIcontOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
+    setSmileIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
+    setThumsUpIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
+  }, []);
+
   const Reactions = () => {
     return (
       <div className={classes.footer__stats}>
         <div>
-          <FavoriteIcon style={{ color: "red", order: `${Math.floor(Math.random() * (3 - 1 + 1)) + 1} ` }} />
-          <EmojiEmotionsIcon style={{ color: "orange", order: `${Math.floor(Math.random() * (3 - 1 + 1)) + 1} ` }} />
-          <ThumbUpAltIcon style={{ color: " #2e81f4", order: `${Math.floor(Math.random() * (3 - 1 + 1)) + 1} ` }} />
+          <FavoriteIcon style={{ color: "red", order: `${heartIcontOrder} ` }} />
+          <EmojiEmotionsIcon style={{ color: "orange", order: `${smileIconOrder} ` }} />
+          <ThumbUpAltIcon style={{ color: " #2e81f4", order: `${thumsUpIconOrder} ` }} />
         </div>
-        <h4>{Math.floor(Math.random() * 1000) + 1}</h4>
+        <h4>{likesCount}</h4>
       </div>
     );
   };
