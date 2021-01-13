@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { darkPrimary, darkSecondary, lightPrimary } from "../../../assets/Colors";
+import { darkPrimary, darkSecondary } from "../../../assets/Colors";
 
 export default makeStyles((theme) => ({
   post: {

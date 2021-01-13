@@ -9,7 +9,7 @@ import Contacts from "./components/contacts/Contacts";
 import Stories from "./components/stories/Stories";
 import Form from "./components/form/Form";
 import Posts from "./components/posts/Posts";
-import { LoginAction } from "./store/actions/auth";
+import { LoginAction, LogoutAction } from "./store/actions/auth";
 import { auth } from "./firebase";
 import Style from "./Style";
 
@@ -31,6 +31,7 @@ const App = () => {
       if (authUser) {
         dispatch(LoginAction(authUser));
       } else {
+        dispatch(LogoutAction());
       }
     });
   }, []);

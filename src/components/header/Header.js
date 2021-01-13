@@ -23,7 +23,7 @@ const Header = () => {
   const classes = Style();
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.util);
-  const { photoURL, displayName } = useSelector((state) => state.user);
+  const { photoURL } = useSelector((state) => state.user);
 
   const changeTheme = () => {
     dispatch(ToggleTheme());
@@ -31,7 +31,7 @@ const Header = () => {
 
   const logout = () => {
     auth.signOut();
-    dispatch(LogoutAction());
+    //dispatch(LogoutAction());
   };
 
   return (

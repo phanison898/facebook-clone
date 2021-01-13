@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { FacebookBlue } from "../../assets/Colors";
+import { FacebookBlue, darkSecondary } from "../../assets/Colors";
 
 const Style = makeStyles((theme) => ({
   stories: {
@@ -8,7 +8,18 @@ const Style = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-start",
     alignItems: "center",
-    overflowX: "scroll",
+    overflow: "auto",
+    "&::-webkit-scrollbar": {
+      height: 7,
+    },
+    "&::-webkit-scrollbar-track": {
+      //boxShadow: "inset 0 0 5px lightgrey",
+      //borderRadius: 10,
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+      borderRadius: 10,
+    },
   },
   story: {
     position: "relative",
