@@ -31,48 +31,60 @@ const Header = () => {
     <Paper elevation={0} style={{ borderRadius: 0, width: "100%", height: "100%" }}>
       <Grid container className={classes.header}>
         {/*----Logo & Search icon--------*/}
-        <Grid item className={classes.header__logo} xs={1} sm={2} md={3}>
-          <img className={classes.logo__image} src={logo} />
-          <Hidden smDown>
-            <div className={classes.logo__search}>
-              <SearchIcon />
-              <input placeholder="Search facebook ..." />
-            </div>
-          </Hidden>
-        </Grid>
+        <Hidden xsDown>
+          <Grid item className={classes.header__logo} sm={2} md={3}>
+            <img className={classes.logo__image} src={logo} />
+            <Hidden smDown>
+              <div className={classes.logo__search}>
+                <SearchIcon />
+                <input placeholder="Search facebook ..." />
+              </div>
+            </Hidden>
+          </Grid>
+        </Hidden>
         {/*----Nav-Bar--------*/}
-        <Grid item className={classes.header__nav} xs={10} sm={8} md={6}>
+        <Grid item className={classes.header__nav} xs={12} sm={8} md={6}>
+          <div className={`${classes.nav__links} ${classes.nav__links__specail}`}>
+            <Avatar src={logo} />
+          </div>
           <div className={classes.nav__links}>
             <HomeOutlined />
           </div>
           <div className={classes.nav__links}>
             <PlayCircleFilledWhiteOutlined />
           </div>
-          <div className={classes.nav__links}>
-            <StoreMallDirectoryOutlined />
-          </div>
-          <div className={classes.nav__links}>
-            <SupervisedUserCircleOutlined />
-          </div>
+          <Hidden xsDown>
+            <div className={classes.nav__links}>
+              <StoreMallDirectoryOutlined />
+            </div>
+            <div className={classes.nav__links}>
+              <SupervisedUserCircleOutlined />
+            </div>
+          </Hidden>
           <div className={classes.nav__links} onClick={changeTheme}>
             {mode ? <Brightness4Icon /> : <BrightnessHighIcon />}
           </div>
+          <div className={`${classes.nav__links} ${classes.nav__links__specail}`}>
+            <Avatar src={photoURL} />
+          </div>
         </Grid>
         {/*----Userinfo and options--------*/}
-        <Grid item className={classes.header__userinfo} xs={1} sm={2} md={3}>
-          <Tooltip placement="left" TransitionComponent={Zoom} TransitionProps={{ timeout: 300 }} title={displayName} arrow>
-            <Avatar src={photoURL} />
-          </Tooltip>
-          <Hidden smDown>
-            <div className={classes.userinfo__options}>
-              <AddIcon />
-              <TelegramIcon />
-              <Badge badgeContent={10} max={9} {...defaultProps} />
+        <Hidden xsDown>
+          <Grid item className={classes.header__userinfo} sm={2} md={3}>
+            <Tooltip placement="left" TransitionComponent={Zoom} TransitionProps={{ timeout: 300 }} title={displayName} arrow>
+              <Avatar src={photoURL} />
+            </Tooltip>
+            <Hidden smDown>
+              <div className={classes.userinfo__options}>
+                <AddIcon />
+                <TelegramIcon />
+                <Badge badgeContent={10} max={9} {...defaultProps} />
 
-              <ArrowDropDownRoundedIcon />
-            </div>
-          </Hidden>
-        </Grid>
+                <ArrowDropDownRoundedIcon />
+              </div>
+            </Hidden>
+          </Grid>
+        </Hidden>
       </Grid>
     </Paper>
   );

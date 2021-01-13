@@ -76,9 +76,20 @@ export default makeStyles((theme) => ({
       backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     },
     [theme.breakpoints.down("xs")]: {
+      justifyContent: "space-evenly",
       "&:hover": {
         backgroundColor: "transparent",
       },
+    },
+  },
+
+  nav__links__specail: {
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+    "& > *": {
+      width: 30,
+      height: 30,
     },
   },
 
