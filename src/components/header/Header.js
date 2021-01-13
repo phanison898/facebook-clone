@@ -15,6 +15,7 @@ import TelegramIcon from "@material-ui/icons/Telegram";
 import Zoom from "@material-ui/core/Zoom";
 import logo from "../../images/logo.png";
 import { ToggleTheme } from "../../store/actions/util";
+import { auth } from "../../firebase";
 import { LogoutAction } from "../../store/actions/auth";
 import Style from "./Style";
 
@@ -29,6 +30,7 @@ const Header = () => {
   };
 
   const logout = () => {
+    auth.signOut();
     dispatch(LogoutAction());
   };
 
