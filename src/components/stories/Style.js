@@ -12,10 +12,7 @@ const Style = makeStyles((theme) => ({
     "&::-webkit-scrollbar": {
       height: 7,
     },
-    "&::-webkit-scrollbar-track": {
-      //boxShadow: "inset 0 0 5px lightgrey",
-      //borderRadius: 10,
-    },
+    "&::-webkit-scrollbar-track": {},
     "&::-webkit-scrollbar-thumb": {
       backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
       borderRadius: 10,

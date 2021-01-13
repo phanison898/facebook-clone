@@ -42,6 +42,6 @@ const Contacts = () => {
   );
 };
 
-const usernames = ["Walter White", "Jessy Pinkman", "Hank Schreder", "Skinny Peet", "Badger", "Mike", "Gus Fring", "Hector", "Toco", "Tommy Shelby", "Arthur", "John", "Finn", "Alfie"];
+const usernames = ["Walter White", "Jessy Pinkman", "Hank Schreder", "Skinny Peet", "Badger", "Mike", "Gus Fring", "Hector", "Toco", "Tommy Shelby", "Arthur", "John", "Finn", "Alfie", "Peter", "John Snow", "Khal Drogo", "Robb Stark", "Dustin", "Will", "Lucos"];
 
 export default Contacts;

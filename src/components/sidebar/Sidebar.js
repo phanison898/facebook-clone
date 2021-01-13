@@ -71,7 +71,7 @@ const Sidebar = () => {
 
         {/* About Author */}
         <div className={classes.about__author}>
-          <h4>Contact Author</h4>
+          <h4>Contact Developer</h4>
           <div>
             {author.map(({ src, url }) => (
               <a href={`${url}`} target="_blank">

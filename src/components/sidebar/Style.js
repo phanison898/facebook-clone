@@ -15,15 +15,15 @@ export default makeStyles((theme) => ({
   },
   about__author: {
     display: "flex",
-    alignItems: "center",
+    flexDirection: "column",
     padding: 10,
     paddingTop: 5,
     "& > div": {
       flex: 1,
       display: "flex",
-      justifyContent: "space-evenly",
+      justifyContent: "space-between",
       alignItems: "center",
-      marginTop: 10,
+      marginTop: 20,
       "& > a": {
         color: "grey",
       },

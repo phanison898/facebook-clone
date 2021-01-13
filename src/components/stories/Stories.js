@@ -1,5 +1,4 @@
 import React from "react";
-import { ProfilePic } from "../../images/images";
 import Story from "./Story";
 import Style from "./Style";
 
@@ -7,11 +6,13 @@ const Stories = () => {
   const classes = Style();
   return (
     <div className={classes.stories}>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-        <Story key={i} bgImage={ProfilePic} profileImage={ProfilePic} title="phanison" />
+      {usernames.map((username, i) => (
+        <Story key={i} bgImage={`https://source.unsplash.com/random/${i + 1}`} profileImage={`https://randomuser.me/api/portraits/men/${i + 1}.jpg`} title={username} />
       ))}
     </div>
   );
 };
+
+const usernames = ["Walter White", "Jessy Pinkman", "Hank Schreder", "Skinny Peet", "Badger", "Mike", "Gus Fring", "Hector", "Toco", "Tommy Shelby", "Arthur", "John", "Finn", "Alfie"];
 
 export default Stories;

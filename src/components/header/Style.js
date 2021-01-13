@@ -117,7 +117,7 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     marginLeft: 10,
     color: theme.palette.type === "dark" ? "lightgrey" : "grey",
-    "& > .MuiSvgIcon-root": {
+    "& > *": {
       borderRadius: 999,
       cursor: "pointer",
       fontSize: 30,
