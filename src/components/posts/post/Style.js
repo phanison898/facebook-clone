@@ -40,8 +40,8 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     marginLeft: 10,
     "& > h4": {
-      fontSize: 18,
-      fontWeight: 700,
+      fontSize: 16,
+      fontWeight: 600,
     },
     "& > p": {
       color: "grey",
@@ -57,7 +57,7 @@ export default makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     padding: 10,
-    paddingTop: 0,
+    paddingTop: 5,
   },
   body__image: {
     width: "100%",
@@ -126,13 +126,13 @@ export default makeStyles((theme) => ({
     },
     "& > .MuiSvgIcon-root": {
       [theme.breakpoints.down("xs")]: {
-        fontSize: 13,
+        fontSize: 16,
       },
     },
     "& > h4": {
       marginLeft: 4,
       [theme.breakpoints.down("xs")]: {
-        fontSize: 11,
+        fontSize: 12,
       },
     },
   },

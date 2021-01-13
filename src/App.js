@@ -1,6 +1,6 @@
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Grid, Hidden, Paper } from "@material-ui/core";
 import Login from "./components/login/Login";
 import Header from "./components/header/Header";
@@ -9,34 +9,37 @@ import Contacts from "./components/contacts/Contacts";
 import Stories from "./components/stories/Stories";
 import Form from "./components/form/Form";
 import Posts from "./components/posts/Posts";
+import { LoginAction } from "./store/actions/auth";
+import { auth } from "./firebase";
 import Style from "./Style";
 
 const App = () => {
-  const { displayName, photoURL } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const { displayName } = useSelector((state) => state.user);
+
   const mode = useSelector((state) => state.util);
-
-  const [userData, setUserData] = useState({
-    username: displayName,
-    profileImage: photoURL,
-  });
-
-  useEffect(() => {
-    setUserData({
-      username: displayName,
-      profileImage: photoURL,
-    });
-  }, [displayName]);
 
   const theme = createMuiTheme({
     palette: {
       type: mode ? "dark" : "light",
     },
   });
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(LoginAction(authUser));
+      } else {
+      }
+    });
+  }, []);
+
   const classes = Style();
   return (
     <ThemeProvider theme={theme}>
       <Paper elevation={0} className={classes.root}>
-        {!userData.username ? (
+        {!displayName ? (
           <Login />
         ) : (
           <Grid className={classes.app}>

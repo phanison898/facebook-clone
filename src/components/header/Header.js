@@ -15,6 +15,7 @@ import TelegramIcon from "@material-ui/icons/Telegram";
 import Zoom from "@material-ui/core/Zoom";
 import logo from "../../images/logo.png";
 import { ToggleTheme } from "../../store/actions/util";
+import { LogoutAction } from "../../store/actions/auth";
 import Style from "./Style";
 
 const Header = () => {
@@ -25,6 +26,10 @@ const Header = () => {
 
   const changeTheme = () => {
     dispatch(ToggleTheme());
+  };
+
+  const logout = () => {
+    dispatch(LogoutAction());
   };
 
   return (
@@ -65,14 +70,14 @@ const Header = () => {
             {mode ? <Brightness4Icon /> : <BrightnessHighIcon />}
           </div>
           <div className={`${classes.nav__links} ${classes.nav__links__specail}`}>
-            <Avatar src={photoURL} />
+            <Avatar src={photoURL} onClick={logout} />
           </div>
         </Grid>
         {/*----Userinfo and options--------*/}
         <Hidden xsDown>
           <Grid item className={classes.header__userinfo} sm={2} md={3}>
-            <Tooltip placement="left" TransitionComponent={Zoom} TransitionProps={{ timeout: 300 }} title={displayName} arrow>
-              <Avatar src={photoURL} />
+            <Tooltip placement="left" TransitionComponent={Zoom} TransitionProps={{ timeout: 300 }} title={"logout"} arrow>
+              <Avatar src={photoURL} onClick={logout} />
             </Tooltip>
             <Hidden smDown>
               <div className={classes.userinfo__options}>
