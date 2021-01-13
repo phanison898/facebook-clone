@@ -26,21 +26,22 @@ const Sidebar = () => {
     <Paper elevation={0} className={classes.sidebar}>
       <Scrollbars autoHide autoHideDuration={200}>
         {/* User info */}
-        <InfoBar Source={<Avatar src={photoURL} />} title={displayName} />
+        <InfoBar key={displayName} Source={<Avatar src={photoURL} />} title={displayName} />
         {/* Top item */}
-        {topRows.map(({ src, title }) => (
-          <InfoBar Source={<Avatar src={src} />} title={title} transform={true} />
+        {topRows.map(({ src, title, i }) => (
+          <InfoBar key={i} Source={<Avatar src={src} />} title={title} transform={true} />
         ))}
         {/* Bottom items (display only when clicks show more button) */}
         {open && (
           <>
-            {bottomRows.map(({ src, title }) => (
-              <InfoBar Source={<Avatar src={src} />} title={title} />
+            {bottomRows.map(({ src, title, i }) => (
+              <InfoBar key={i} Source={<Avatar src={src} />} title={title} />
             ))}
           </>
         )}
         {/* Toggle button (show more /show less) */}
         <InfoBar
+          key={"expand-icon"}
           Source={
             <Avatar>
               <ExpandMoreIcon style={{ transform: open && "rotate(180deg)" }} />
@@ -55,8 +56,8 @@ const Sidebar = () => {
         {/* Your links section */}
         <h4 style={{ margin: "10px 10px" }}>Your short cuts</h4>
         <>
-          {yourLinks.map(({ src, title }) => (
-            <InfoBar Source={<Avatar src={src} />} title={title} />
+          {yourLinks.map(({ src, title, i }) => (
+            <InfoBar key={i} Source={<Avatar src={src} />} title={title} />
           ))}
         </>
       </Scrollbars>

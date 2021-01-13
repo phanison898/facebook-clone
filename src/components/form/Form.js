@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Chip, Paper, useTheme, Divider } from "@material-ui/core";
+import { Chip, Paper, Divider, LinearProgress } from "@material-ui/core";
 import imageCompression from "browser-image-compression";
 import Avatar from "@material-ui/core/Avatar";
 import VideocamRoundedIcon from "@material-ui/icons/VideocamRounded";
 import PhotoRoundedIcon from "@material-ui/icons/PhotoRounded";
 import EmojiEmotionsOutlinedIcon from "@material-ui/icons/EmojiEmotionsOutlined";
 import firebase from "firebase";
-import db from "../../firebase";
+import { v4 as uuid } from "uuid";
+import db, { storage } from "../../firebase";
 import Styles from "./Style";
 
 const Form = () => {
   const classes = Styles();
-  const theme = useTheme();
   const { displayName, photoURL } = useSelector((state) => state.user);
 
   const [uploadData, setUploadData] = useState({
@@ -24,20 +24,58 @@ const Form = () => {
     },
   });
 
-  const handleSubmitButton = (e) => {
-    e.preventDefault();
-    // firebase logic
-    if (uploadData.description || uploadData.file.data) {
-      db.collection("posts").add({
+  const [progress, setProgress] = useState("");
+
+  const uploadToFirebaseDB = (fileData) => {
+    // uploading to collection called posts
+    db.collection("posts")
+      .add({
         profile: photoURL,
         username: displayName,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         description: uploadData.description,
         fileType: uploadData.file.type,
         fileName: uploadData.file.name,
-        fileData: uploadData.file.data,
-      });
-      resetState();
+        fileData: fileData,
+      })
+      .then(() => resetState());
+  };
+
+  const handleSubmitButton = (e) => {
+    e.preventDefault();
+
+    // verify atleast one of the input fields are not empyt
+    if (uploadData.description || uploadData.file.data) {
+      // if file input is true...upload the file to Fire-Store
+      if (uploadData.file.data) {
+        const id = uuid();
+        const uploadTask = storage.ref(`posts/${id}`).putString(uploadData.file.data, "data_url");
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setProgress(value);
+            console.log(value);
+          },
+
+          (error) => {
+            alert(error);
+          },
+
+          () => {
+            storage
+              .ref("posts")
+              .child(id)
+              .getDownloadURL()
+              .then((url) => uploadToFirebaseDB(url));
+          }
+        );
+
+        // do not go further..
+        return;
+      }
+      // if not file input provided
+      uploadToFirebaseDB(uploadData.file.data);
     } else {
       alert("please enter something..");
     }
@@ -47,6 +85,19 @@ const Form = () => {
     const inputFile = e.target.files[0];
     const inputFileType = inputFile.type.split("/")[0];
     const inputFileName = inputFile.name;
+
+    const fileSize = inputFile.size / (1024 * 1024);
+
+    switch (inputFileType) {
+      case "video":
+        if (fileSize > 25) return alert("Select a video less than 25MB size");
+        break;
+      case "image":
+        if (fileSize > 3) return alert("select an image less than 3MB size");
+        break;
+      default:
+        break;
+    }
 
     let compressedInputFile = inputFile;
     if (inputFileType === "image") {
@@ -91,6 +142,7 @@ const Form = () => {
         data: "",
       },
     });
+    setProgress("");
   };
 
   return (
@@ -108,13 +160,13 @@ const Form = () => {
           <Chip color="primary" size="small" onDelete={resetState} icon={uploadData.file.type === "image" ? <PhotoRoundedIcon /> : <VideocamRoundedIcon />} label={uploadData.file.name} />
         </div>
       )}
+      {progress ? <LinearProgress variant="determinate" value={progress} /> : ""}
       <Divider />
 
       <div className={classes.upload__media}>
         <div className={classes.media__options}>
           <VideocamRoundedIcon style={{ color: "red" }} />
           <h4>Live video</h4>
-          {console.log(theme.palette.type)}
         </div>
         <label htmlFor="upload-image" className={classes.media__options}>
           <PhotoRoundedIcon style={{ color: "green" }} />

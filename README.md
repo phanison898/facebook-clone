@@ -5,7 +5,7 @@
 
 ### Summary
 
-This projects deals with re-building the facebook application from scratch using `REACT`
+Re-building the facebook application from scratch using `REACT`
 
 ### Preview
 
