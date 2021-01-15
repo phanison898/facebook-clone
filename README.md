@@ -15,7 +15,7 @@ Re-building the facebook application from scratch using `REACT`
 
 - Node
 - React
-- React Hooks
+- React hooks
 - Redux
 - Material UI
 - Flexbox
