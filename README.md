@@ -11,7 +11,7 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
 
 <img width="100%" src="https://media.giphy.com/media/4plKpdP9WwYM6T1vuk/giphy.gif" />
 
-### Techn stack
+### Tech stack
 
 - React
 - React hooks
