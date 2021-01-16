@@ -9,7 +9,7 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
 
 ### Preview
 
-<img width="100%" src="https://media.giphy.com/media/4plKpdP9WwYM6T1vuk/giphy.gif" />
+<img width="100%" src="https://media.giphy.com/media/ZBrjiNNMqqoiZFGTyV/giphy.gif" />
 
 ### Tech stack
 
