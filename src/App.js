@@ -90,14 +90,4 @@ const App = () => {
   );
 };
 
-// useEffect(() => {
-//   auth.onAuthStateChanged((authUser) => {
-//     if (authUser) {
-//       dispatch(LoginAction(authUser));
-//     } else {
-//       dispatch(LogoutAction());
-//     }
-//   });
-// }, []);
-
 export default App;

@@ -59,7 +59,15 @@ const InfoBar = ({ Source, title, onClick, online, lastSeen, noTransform }) => {
     <div className={classes.infobar} onClick={onClick}>
       <div className={classes.infobar__source}>
         {Source}
-        {online && <div className={classes.online}>{lastSeen ? <div className={classes.lastSeen}>{lastSeen}</div> : <FiberManualRecordIcon />}</div>}
+        {online && (
+          <div className={classes.online}>
+            {lastSeen ? (
+              <div className={classes.lastSeen}>{lastSeen}</div>
+            ) : (
+              <FiberManualRecordIcon />
+            )}
+          </div>
+        )}
       </div>
       <h4>{title}</h4>
     </div>

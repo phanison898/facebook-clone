@@ -33,7 +33,10 @@ const Contacts = () => {
             }
             title={username}
             online={true}
-            lastSeen={Math.floor(Math.random() * (3 - 1 + 1)) + 1 === 2 && `${Math.floor(Math.random() * 10) + 1} h`}
+            lastSeen={
+              Math.floor(Math.random() * (3 - 1 + 1)) + 1 === 2 &&
+              `${Math.floor(Math.random() * 10) + 1} h`
+            }
             noTransform={true}
           />
         ))}
@@ -42,6 +45,28 @@ const Contacts = () => {
   );
 };
 
-const usernames = ["Walter White", "Jessy Pinkman", "Hank Schreder", "Skinny Peet", "Badger", "Mike", "Gus Fring", "Hector", "Toco", "Tommy Shelby", "Arthur", "John", "Finn", "Alfie", "Peter", "John Snow", "Khal Drogo", "Robb Stark", "Dustin", "Will", "Lucos"];
+const usernames = [
+  "Walter White",
+  "Jessy Pinkman",
+  "Hank Schreder",
+  "Skinny Peet",
+  "Badger",
+  "Mike",
+  "Gus Fring",
+  "Hector",
+  "Toco",
+  "Tommy Shelby",
+  "Arthur",
+  "John",
+  "Finn",
+  "Alfie",
+  "Peter",
+  "John Snow",
+  "Khal Drogo",
+  "Robb Stark",
+  "Dustin",
+  "Will",
+  "Lucos",
+];
 
 export default Contacts;

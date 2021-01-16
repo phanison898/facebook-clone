@@ -165,14 +165,30 @@ const Form = () => {
       <div className={classes.upload__header}>
         <Avatar src={photoURL} />
         <form className={classes.header__form} onSubmit={handleSubmitButton}>
-          <input placeholder={`What's on your mind, ${displayName}?`} value={uploadData.description} onChange={(e) => setUploadData({ ...uploadData, description: e.target.value })} />
-          <input id="upload-image" type="file" accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv" hidden onChange={imageUploadHandler} />
+          <input
+            placeholder={`What's on your mind, ${displayName}?`}
+            value={uploadData.description}
+            onChange={(e) => setUploadData({ ...uploadData, description: e.target.value })}
+          />
+          <input
+            id="upload-image"
+            type="file"
+            accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv"
+            hidden
+            onChange={imageUploadHandler}
+          />
           <button type="submit">Post</button>
         </form>
       </div>
       {uploadData.file.name && !progress && (
         <div className={classes.selectedFile}>
-          <Chip color="primary" size="small" onDelete={resetState} icon={uploadData.file.type === "image" ? <PhotoRoundedIcon /> : <VideocamRoundedIcon />} label={uploadData.file.name} />
+          <Chip
+            color="primary"
+            size="small"
+            onDelete={resetState}
+            icon={uploadData.file.type === "image" ? <PhotoRoundedIcon /> : <VideocamRoundedIcon />}
+            label={uploadData.file.name}
+          />
         </div>
       )}
       {progress ? (

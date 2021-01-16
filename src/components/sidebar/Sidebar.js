@@ -29,14 +29,19 @@ const Sidebar = () => {
         {/* User info */}
         <InfoBar key={displayName} Source={<Avatar src={photoURL} />} title={displayName} />
         {/* Top item */}
-        {topRows.map(({ src, title, i }) => (
-          <InfoBar key={i} Source={<Avatar src={src} />} title={title} transform={true} />
+        {topRows.map(({ src, title }, i) => (
+          <InfoBar
+            key={`info-top-${i}`}
+            Source={<Avatar src={src} />}
+            title={title}
+            transform={true}
+          />
         ))}
         {/* Bottom items (display only when clicks show more button) */}
         {open && (
           <>
-            {bottomRows.map(({ src, title, i }) => (
-              <InfoBar key={i} Source={<Avatar src={src} />} title={title} />
+            {bottomRows.map(({ src, title }, i) => (
+              <InfoBar key={`info-bottom-${i}`} Source={<Avatar src={src} />} title={title} />
             ))}
           </>
         )}
@@ -57,8 +62,8 @@ const Sidebar = () => {
         {/* Your links section */}
         <h4 style={{ margin: "10px 10px" }}>Your short cuts</h4>
         <>
-          {yourLinks.map(({ src, title, i }) => (
-            <InfoBar key={i} Source={<Avatar src={src} />} title={title} />
+          {yourLinks.map(({ src, title }, i) => (
+            <InfoBar key={`info-links-${i}`} Source={<Avatar src={src} />} title={title} />
           ))}
         </>
 
@@ -68,8 +73,8 @@ const Sidebar = () => {
         <div className={classes.about__author}>
           <h4>Contact Developer</h4>
           <div>
-            {author.map(({ src, url }) => (
-              <a href={`${url}`} rel="noreferrer nofollow" target="_blank">
+            {author.map(({ src, url }, i) => (
+              <a href={`${url}`} key={`author-link-${i}`} rel="noreferrer nofollow" target="_blank">
                 {src}
               </a>
             ))}
