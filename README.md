@@ -54,3 +54,4 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
    ```bash
    npm start
    ```
+7. Happy learning 😊
