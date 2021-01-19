@@ -33,6 +33,13 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
 
 ---
 
+### Pre-requisites
+
+1. Install **`NODE`** (if not already installed)
+2. Setup **`FIREBASE`** project and get the api config values
+
+---
+
 ### How to make use of this build?
 
 1. Clone the repository
@@ -43,8 +50,7 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
    ```bash
    cd path/to/cloned/directory
    ```
-3. Setup a project in firebase and get api configuration values
-4. Create .env file with following properties and paste firebase config values respectively
+3. Create .env file with following properties and paste firebase config values respectively
    ```bash
    REACT_APP_API_KEY=....................................
    REACT_APP_AUTH_DOMAIN=................................
@@ -54,14 +60,14 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
    REACT_APP_APP_ID=.....................................
    REACT_APP_MEASUREMENT_ID=.............................
    ```
-5. Install node packages
+4. Install node packages
    ```bash
    npm install
    ```
-6. Start the development server
+5. Start the development server
    ```bash
    npm start
    ```
-7. Happy learning 😊
+6. Happy learning 😊
 
 ---
