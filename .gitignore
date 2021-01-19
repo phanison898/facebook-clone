@@ -28,7 +28,6 @@ debug.log
 debug.log
 
 #firebase
-/src/firebase.js
 .firebase
 .firebaserc
 firebase.json
