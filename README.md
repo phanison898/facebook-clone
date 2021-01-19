@@ -23,3 +23,33 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
   - Firestore
   - Storage
   - Hosting
+
+### How to use this build?
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/phanison898/facebook-clone.git
+   ```
+2. Navigate to the cloned directory
+   ```bash
+   cd path/to/cloned/directory
+   ```
+3. Setup a project in firebase and get api configuration values
+4. Create .env file with following properties and paste firebase config values respectively
+   ```bash
+   REACT_APP_API_KEY=....................................
+   REACT_APP_AUTH_DOMAIN=................................
+   REACT_APP_PROJECT_ID=.................................
+   REACT_APP_STORAGE_BUCKET=.............................
+   REACT_APP_MESSAGING_SENDER_ID=........................
+   REACT_APP_APP_ID=.....................................
+   REACT_APP_MEASUREMENT_ID=.............................
+   ```
+5. Install node packages
+   ```bash
+   npm install
+   ```
+6. Start the development server
+   ```bash
+   npm start
+   ```
