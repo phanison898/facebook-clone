@@ -1,8 +1,8 @@
 ## **`Facebook-Clone`**
 
-![](https://www.code-inspector.com/project/17617/score/svg)
-![](https://www.code-inspector.com/project/17617/status/svg)
 ![](https://img.shields.io/github/languages/code-size/phanison898/facebook-clone?style=flat-square)
+![](https://img.shields.io/github/last-commit/phanison898/facebook-clone?style=flat-square)
+![](https://img.shields.io/github/languages/top/phanison898/facebook-clone?style=flat-square)
 
 ### About
 
