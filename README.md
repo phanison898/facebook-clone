@@ -25,7 +25,7 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
   - Storage
   - Hosting
 
-### How to use this build?
+### How to make use of this build?
 
 1. Clone the repository
    ```bash
