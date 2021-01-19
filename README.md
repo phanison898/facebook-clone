@@ -4,15 +4,21 @@
 ![](https://img.shields.io/github/last-commit/phanison898/facebook-clone?style=flat-square)
 ![](https://img.shields.io/github/languages/top/phanison898/facebook-clone?style=flat-square)
 
+---
+
 ### About
 
 Building facebook application clone using **`React`** and **`Firebase`**. This build covers the core functionality (`uploading normal text, images & videos`) of original facebook application. The best thing of the build is, it is fully responsive and looks better in most of the devices. It includes dark/light theme toggle feature as well
+
+---
 
 ### Preview
 
 <img width="100%" src="https://media.giphy.com/media/ZBrjiNNMqqoiZFGTyV/giphy.gif" />
 
-### Tech stack
+---
+
+### Tech used
 
 - React
 - React hooks
@@ -24,6 +30,8 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
   - Firestore
   - Storage
   - Hosting
+
+---
 
 ### How to make use of this build?
 
@@ -55,3 +63,5 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
    npm start
    ```
 7. Happy learning 😊
+
+---
