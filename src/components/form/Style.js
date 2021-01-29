@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { darkPrimary, darkSecondary, FacebookBlue } from "../../assets/Colors";
+import { darkPrimary, darkSecondary, FacebookBlue, textDark } from "../../assets/Colors";
 
 export default makeStyles((theme) => ({
   upload: {
@@ -41,7 +41,9 @@ export default makeStyles((theme) => ({
       fontWeight: 600,
       backgroundColor: "transparent",
       "&::placeholder": {
-        color: theme.palette.type === "dark" && "grey",
+        fontWeight: 600,
+        fontSize: 15,
+        color: theme.palette.type === "dark" && textDark,
       },
     },
     "& > button": {
@@ -102,6 +104,7 @@ export default makeStyles((theme) => ({
       backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     },
     "& > h4": {
+      color: theme.palette.type === "dark" && textDark,
       marginLeft: 10,
       [theme.breakpoints.down("sm")]: {
         display: "none",

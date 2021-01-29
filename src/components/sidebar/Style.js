@@ -13,6 +13,7 @@ export default makeStyles((theme) => ({
     borderRadius: 0,
     backgroundColor: theme.palette.type === "light" && lightPrimary,
   },
+
   about__author: {
     display: "flex",
     flexDirection: "column",

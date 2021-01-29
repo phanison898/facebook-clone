@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { darkPrimary, darkSecondary } from "../../../assets/Colors";
+import { darkPrimary, darkSecondary, textDark } from "../../../assets/Colors";
 
 export default makeStyles((theme) => ({
   post: {
@@ -25,6 +25,7 @@ export default makeStyles((theme) => ({
       cursor: "pointer",
     },
     "& > .MuiSvgIcon-root": {
+      color: theme.palette.type === "dark" && textDark,
       cursor: "pointer",
       borderRadius: 999,
       transition: "all 0.3s ease",
@@ -95,6 +96,7 @@ export default makeStyles((theme) => ({
       },
     },
     "& > h4": {
+      color: theme.palette.type === "dark" && textDark,
       fontSize: 14,
       marginLeft: 2,
       fontWeight: 500,
@@ -126,11 +128,13 @@ export default makeStyles((theme) => ({
       },
     },
     "& > .MuiSvgIcon-root": {
+      color: theme.palette.type === "dark" && textDark,
       [theme.breakpoints.down("xs")]: {
         fontSize: 16,
       },
     },
     "& > h4": {
+      color: theme.palette.type === "dark" && textDark,
       marginLeft: 4,
       [theme.breakpoints.down("xs")]: {
         fontSize: 12,
