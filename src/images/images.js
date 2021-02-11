@@ -17,11 +17,9 @@ export const FacebookGames = "https://static.xx.fbcdn.net/rsrc.php/v3/yn/r/XEWvx
 export const FacebookGameVideos = "https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/uGfRd5KPhOI.png";
 
 //shortcuts
-export const ReactNative =
-  "https://scontent-maa2-1.xx.fbcdn.net/v/t31.0-0/cp0/c25.0.64.64a/p64x64/19488654_1559641290733944_6026670271214651930_o.jpg?_nc_cat=101&ccb=2&_nc_sid=ca434c&_nc_ohc=XrlVGnQ9uXUAX8D0LHY&_nc_ht=scontent-maa2-1.xx&tp=27&oh=a89c85814956c6dfd3244a6523cc0586&oe=60219BA4";
+export const ReactNative = "https://img.stackshare.io/service/2699/KoK6gHzp.jpg";
 export const ReactJs =
-  "https://scontent-maa2-1.xx.fbcdn.net/v/t1.0-0/cp0/c15.0.64.64a/p64x64/33105813_1918737428201511_1687826614370435072_n.jpg?_nc_cat=108&ccb=2&_nc_sid=ca434c&_nc_ohc=tOgQlETXYCcAX9Z_Ykv&_nc_ht=scontent-maa2-1.xx&tp=27&oh=15646fda77ef4f8c87558825239b73c2&oe=60213718";
-export const NodeJs =
-  "https://scontent-maa2-1.xx.fbcdn.net/v/t31.0-0/cp0/c25.0.64.64a/p64x64/26850584_10156186800336579_1585065027752569016_o.jpg?_nc_cat=102&ccb=2&_nc_sid=ca434c&_nc_ohc=N1ymBLAtNRIAX-rgwlX&_nc_ht=scontent-maa2-1.xx&tp=27&oh=3f73732ef9b04173e58e6532663ce6cf&oe=60205E86";
+  "https://www.andreasreiterer.at/wp-content/uploads/2017/11/react-logo-825x510.jpg";
+export const NodeJs = "https://www.javatpoint.com/js/nodejs/images/node-js-tutorial.png";
 export const Javascript =
-  "https://scontent-maa2-1.xx.fbcdn.net/v/t31.0-0/cp0/c54.0.64.64a/p64x64/22496220_10155813358479116_9134068236633048689_o.jpg?_nc_cat=111&ccb=2&_nc_sid=ca434c&_nc_ohc=6V1Otc6xHTEAX_Zv2ug&_nc_ht=scontent-maa2-1.xx&tp=27&oh=bb7f2f183b519c23c9ac8da036eb42ab&oe=60225E04";
+  "https://1000logos.net/wp-content/uploads/2020/09/JavaScript-Logo-640x400.png";
