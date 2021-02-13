@@ -13,6 +13,8 @@ export default makeStyles((theme) => ({
     backgroundColor: theme.palette.type === "dark" && darkPrimary,
     [theme.breakpoints.down("xs")]: {
       borderRadius: 0,
+      border: 0,
+      boxShadow: "none",
     },
   },
   upload__header: {
@@ -44,6 +46,10 @@ export default makeStyles((theme) => ({
         fontWeight: 600,
         fontSize: 15,
         color: theme.palette.type === "dark" && textDark,
+        [theme.breakpoints.down("xs")]: {
+          fontWeight: 600,
+          fontSize: 12,
+        },
       },
     },
     "& > button": {
@@ -57,6 +63,9 @@ export default makeStyles((theme) => ({
       color: "white",
       cursor: "pointer",
       fontWeight: 600,
+      [theme.breakpoints.down("xs")]: {
+        fontSize: 14,
+      },
     },
   },
   selectedFile: {

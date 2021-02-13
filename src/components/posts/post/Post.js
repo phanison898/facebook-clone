@@ -9,6 +9,7 @@ import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ReactPlayer from "react-player";
+import ReactTimeago from "react-timeago";
 import Style from "./Style";
 
 const Post = forwardRef(
@@ -46,7 +47,9 @@ const Post = forwardRef(
           <Avatar src={profile} />
           <div className={classes.header__info}>
             <h4>{username}</h4>
-            <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
+            <p>
+              <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} units="minute" />
+            </p>
           </div>
           <MoreHorizOutlinedIcon />
         </div>

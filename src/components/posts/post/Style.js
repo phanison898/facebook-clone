@@ -12,8 +12,11 @@ export default makeStyles((theme) => ({
     backgroundColor: theme.palette.type === "dark" && darkPrimary,
     [theme.breakpoints.down("xs")]: {
       borderRadius: 0,
+      border: 0,
+      boxShadow: "none",
     },
   },
+
   post__header: {
     width: "100%",
     height: "auto",
@@ -25,7 +28,7 @@ export default makeStyles((theme) => ({
       cursor: "pointer",
     },
     "& > .MuiSvgIcon-root": {
-      color: theme.palette.type === "dark" && textDark,
+      color: theme.palette.type === "dark" ? textDark : "grey",
       cursor: "pointer",
       borderRadius: 999,
       transition: "all 0.3s ease",
@@ -34,6 +37,7 @@ export default makeStyles((theme) => ({
       },
     },
   },
+
   header__info: {
     flex: 1,
     display: "flex",
@@ -73,6 +77,9 @@ export default makeStyles((theme) => ({
       transition: "all 0.5s ease",
       "&:hover": {
         transform: "scale(1.1)",
+        [theme.breakpoints.down("xs")]: {
+          transform: "scale(1.0)",
+        },
       },
     },
   },

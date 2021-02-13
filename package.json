@@ -20,6 +20,7 @@
     "react-player": "^2.7.2",
     "react-redux": "^7.2.2",
     "react-scripts": "4.0.1",
+    "react-timeago": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "uuid": "^8.3.2",

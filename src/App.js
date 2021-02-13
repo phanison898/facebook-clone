@@ -35,7 +35,7 @@ const App = () => {
         dispatch(LogoutAction());
       }
     });
-  }, []);
+  }, [dispatch]);
 
   const classes = Style();
   return (

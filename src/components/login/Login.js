@@ -40,7 +40,7 @@ const Login = () => {
         <div className={classes.about}>
           <section>
             <div></div>
-            <p>contact author</p>
+            <p>Developer Info</p>
             <div></div>
           </section>
           <div>
