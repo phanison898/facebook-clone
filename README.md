@@ -70,6 +70,7 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
    npm start
    ```
 6. Happy learning 😊
+7. Don't forget to star ( ⭐ ) the repo
 
 ---
 
