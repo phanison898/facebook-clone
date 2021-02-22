@@ -20,6 +20,9 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
 - 🖥 **Desktop view** : <p align="center">
   <img width="100%" src="https://media.giphy.com/media/ZBrjiNNMqqoiZFGTyV/giphy.gif" />
   </p>
+- 📱 **Mobile view** : <p align="center">
+  <img width="35%" src="https://media.giphy.com/media/yfUdyCuCT98sgURKBu/giphy.gif" />
+  </p>
 
 ---
 
