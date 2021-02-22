@@ -7,19 +7,23 @@
 
 ---
 
-### About
+### 🚥 About
 
 Building facebook application clone using **`React`** and **`Firebase`**. This build covers the core functionality (`uploading normal text, images & videos`) of original facebook application. The best thing of the build is, it is fully responsive and looks better in most of the devices. It includes dark/light theme toggle feature as well
 
----
-
-### Preview
-
-<img width="100%" src="https://media.giphy.com/media/ZBrjiNNMqqoiZFGTyV/giphy.gif" />
+🔌 **Live Website Link** : <a href="https://phanison-facebook-clone.web.app/">https://phanison-facebook-clone.web.app/</a>
 
 ---
 
-### Tech used
+### 🎥 Preview
+
+- 🖥 **Desktop view** : <p align="center">
+  <img width="100%" src="https://media.giphy.com/media/ZBrjiNNMqqoiZFGTyV/giphy.gif" />
+  </p>
+
+---
+
+### 🛠 Tech used
 
 - React
 - React hooks
@@ -34,14 +38,14 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
 
 ---
 
-### Pre-requisites
+### ⛔ Pre-requisites
 
 1. Install **`NODE`** (if not already installed)
 2. Setup **`FIREBASE`** project and get the api config values
 
 ---
 
-### How to make use of this build?
+### ✅ How to make use of this build?
 
 1. Clone the repository
    ```bash
@@ -69,11 +73,11 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
    npm start
    ```
 6. Happy learning 😊
-7. Don't forget to star ( ⭐ ) the repo
+7. Please consider to star ( ⭐ ) this repo. It'll boost my confidence
 
 ---
 
-### Feel free to reach out to me
+### ☎ Feel free to reach out to me
 
 [![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/phanison225/)
 [![Instagram](https://img.shields.io/badge/-Instagram-ff69bf?style=flat-square&logo=Instagram&logoColor=white)](https://www.instagram.com/phanison225/)
