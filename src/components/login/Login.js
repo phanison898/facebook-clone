@@ -6,7 +6,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import Logo from "./../../images/fb_text.png";
+import Logo from "./../../assets/images/fb_text.png";
 import Style from "./Style";
 
 const Login = () => {

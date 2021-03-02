@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Avatar, Tooltip, Paper, Divider } from "@material-ui/core";
 import { Scrollbars } from "react-custom-scrollbars";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import InfoBar from "../util/InfoBar";
 import Style from "./Style";
+import axios from "axios";
 
 const Contacts = () => {
   const classes = Style();
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(async () => {
+    const response = await axios.get("https://breakingbadapi.com/api/characters");
+    setUsers(response.data);
+  }, []);
 
   return (
     <Paper elevation={0} className={classes.contacts}>
@@ -23,15 +31,15 @@ const Contacts = () => {
           <SearchIcon />
           <MoreHorizIcon />
         </div>
-        {usernames.map((username, n) => (
+        {users.map(({ char_id, name, img }) => (
           <InfoBar
-            key={n}
+            key={char_id}
             Source={
-              <Tooltip placement="left" title={username} arrow>
-                <Avatar src={`https://randomuser.me/api/portraits/men/${n + 1}.jpg`} />
+              <Tooltip placement="left" title={name} arrow>
+                <Avatar src={img} size={100} />
               </Tooltip>
             }
-            title={username}
+            title={name}
             online={true}
             lastSeen={
               Math.floor(Math.random() * (3 - 1 + 1)) + 1 === 2 &&
@@ -44,29 +52,5 @@ const Contacts = () => {
     </Paper>
   );
 };
-
-const usernames = [
-  "Walter White",
-  "Jessy Pinkman",
-  "Hank Schreder",
-  "Skinny Peet",
-  "Badger",
-  "Mike",
-  "Gus Fring",
-  "Hector",
-  "Toco",
-  "Tommy Shelby",
-  "Arthur",
-  "John",
-  "Finn",
-  "Alfie",
-  "Peter",
-  "John Snow",
-  "Khal Drogo",
-  "Robb Stark",
-  "Dustin",
-  "Will",
-  "Lucos",
-];
 
 export default Contacts;

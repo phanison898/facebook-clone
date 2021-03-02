@@ -8,7 +8,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import * as images from "../../images/images";
+import * as images from "../../assets/images/images";
 import InfoBar from "../util/InfoBar";
 import Style from "./Style";
 

@@ -1,38 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Story from "./Story";
 import Style from "./Style";
+import axios from "axios";
 
 const Stories = () => {
   const classes = Style();
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(async () => {
+    const response = await axios.get("https://breakingbadapi.com/api/characters?limit=10");
+    setUsers(response.data);
+  }, []);
+
   return (
     <div className={classes.stories}>
-      {usernames.map((username, i) => (
+      {users.map(({ char_id, name, img }) => (
         <Story
-          key={i}
-          bgImage={`https://source.unsplash.com/random/${i + 1}`}
-          profileImage={`https://randomuser.me/api/portraits/men/${i + 1}.jpg`}
-          title={username}
+          key={char_id}
+          bgImage={`https://source.unsplash.com/random/${char_id}`}
+          profileImage={img}
+          title={name}
         />
       ))}
     </div>
   );
 };
-
-const usernames = [
-  "Walter White",
-  "Jessy Pinkman",
-  "Hank Schreder",
-  "Skinny Peet",
-  "Badger",
-  "Mike",
-  "Gus Fring",
-  "Hector",
-  "Toco",
-  "Tommy Shelby",
-  "Arthur",
-  "John",
-  "Finn",
-  "Alfie",
-];
 
 export default Stories;
