@@ -44,7 +44,7 @@ Building facebook application clone using **`React`** and **`Firebase`**. This b
 ### ⛔ Pre-requisites
 
 1. Install **`NODE`** (if not already installed)
-2. Setup **`FIREBASE`** project and get the api config values
+2. Setup **`FIREBASE`** project and get the api config values. Checkout <a href="https://firebase.google.com/docs/web/setup?authuser=0">how to setup firebase project?</a>
 
 ---
 
