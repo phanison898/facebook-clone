@@ -10,6 +10,7 @@ import firebase from "firebase";
 import { v4 as uuid } from "uuid";
 import db, { storage } from "../../firebase";
 import Styles from "./Style";
+import swal from "@sweetalert/with-react";
 
 const Form = () => {
   const classes = Styles();
@@ -76,7 +77,7 @@ const Form = () => {
       // if not file input provided
       uploadToFirebaseDB(uploadData.file.data);
     } else {
-      alert("please enter something..");
+      swal("😕 Input field can not be empty");
     }
   };
 
@@ -93,22 +94,47 @@ const Form = () => {
     return fileName;
   };
 
-  const imageUploadHandler = async (e) => {
+  const imageUploadHandler = async (e, type) => {
     const inputFile = e.target.files[0];
-    const inputFileType = inputFile.type.split("/")[0];
+    const _inputFile = inputFile.type.split("/");
+    const inputFileType = _inputFile[0];
+    const inputFileExec = _inputFile[1];
     const inputFileName = fileNameCompressor(inputFile.name, 20);
 
     const fileSize = inputFile.size / (1024 * 1024);
 
-    switch (inputFileType) {
+    const acceptedImageFormats = ["png", "jpg", "jpeg", "gif"];
+    const acceptedVideoFormats = ["mp4", "mkv", "3gp", "avi", "webm"];
+
+    switch (type) {
       case "video":
-        if (fileSize > 25) return alert("Select a video less than 25MB size");
+        if (!acceptedVideoFormats.some((format) => format.includes(inputFileExec))) {
+          swal("🔴 Please select video format of mp4 , mkv , av ");
+          e.target.value = "";
+          return;
+        }
+        if (fileSize > 10) {
+          swal("🔴 Please select a video less than 10MB file size");
+          e.target.value = "";
+          return;
+        }
         break;
       case "image":
-        if (fileSize > 3) return alert("select an image less than 3MB size");
+        if (!acceptedImageFormats.some((format) => format.includes(inputFileExec))) {
+          swal("🔴 Please select image format of png , jpg , jpeg , gif ");
+          e.target.value = "";
+          return;
+        }
+        if (fileSize > 2) {
+          swal("🔴 Please select an image less than 2MB file size");
+          e.target.value = "";
+          return;
+        }
         break;
       default:
-        break;
+        swal("😮 OOPS...!!! Invalid file format");
+        e.target.value = "";
+        return;
     }
 
     let compressedInputFile = inputFile;
@@ -173,9 +199,16 @@ const Form = () => {
           <input
             id="upload-image"
             type="file"
-            accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv"
+            accept="image/*"
             hidden
-            onChange={imageUploadHandler}
+            onChange={(e) => imageUploadHandler(e, "image")}
+          />
+          <input
+            id="upload-video"
+            type="file"
+            accept="video/*"
+            hidden
+            onChange={(e) => imageUploadHandler(e, "video")}
           />
           <button type="submit">Post</button>
         </form>
@@ -202,13 +235,13 @@ const Form = () => {
       <Divider />
 
       <div className={classes.upload__media}>
-        <div className={classes.media__options}>
+        <label htmlFor="upload-video" className={classes.media__options}>
           <VideocamRoundedIcon style={{ color: "red" }} />
-          <h4>Live video</h4>
-        </div>
+          <h4>Video</h4>
+        </label>
         <label htmlFor="upload-image" className={classes.media__options}>
           <PhotoRoundedIcon style={{ color: "green" }} />
-          <h4>Photo/Video</h4>
+          <h4>Photo</h4>
         </label>
         <div className={classes.media__options}>
           <EmojiEmotionsOutlinedIcon style={{ color: "orange" }} />

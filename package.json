@@ -6,6 +6,7 @@
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
+    "@sweetalert/with-react": "^0.1.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -23,6 +24,7 @@
     "react-timeago": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "sweetalert": "^2.1.2",
     "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"
   },
