@@ -36,9 +36,9 @@ const Post = forwardRef(
       return (
         <div className={classes.footer__stats}>
           <div>
-            <img src={Like} style={{ order: `${likeIconOrder} ` }} />
-            <img src={Love} style={{ order: `${loveIconOrder} ` }} />
-            <img src={Care} style={{ order: `${careIconOrder} ` }} />
+            <img src={Like} style={{ order: `${likeIconOrder} ` }} alt="like-icon" />
+            <img src={Love} style={{ order: `${loveIconOrder} ` }} alt="love-icon" />
+            <img src={Care} style={{ order: `${careIconOrder} ` }} alt="care-icon" />
           </div>
           <h4>{likesCount}</h4>
           <section>
