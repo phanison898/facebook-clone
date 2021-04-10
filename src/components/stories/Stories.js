@@ -9,9 +9,11 @@ const Stories = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const response = async () =>
-      await axios.get("https://breakingbadapi.com/api/characters?limit=10");
-    setUsers(response.data);
+    const fetchUsres = async () => {
+      const response = await axios.get("https://breakingbadapi.com/api/characters?limit=10");
+      setUsers(response.data);
+    };
+    fetchUsres();
   }, []);
 
   return (
