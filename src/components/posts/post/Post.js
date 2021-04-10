@@ -5,9 +5,9 @@ import MoreHorizOutlinedIcon from "@material-ui/icons/MoreHorizOutlined";
 import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import ReplyOutlinedIcon from "@material-ui/icons/ReplyOutlined";
-import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+import Like from "../../../assets/images/like.png";
+import Love from "../../../assets/images/love.png";
+import Care from "../../../assets/images/care.png";
 import ReactPlayer from "react-player";
 import ReactTimeago from "react-timeago";
 import Style from "./Style";
@@ -17,26 +17,34 @@ const Post = forwardRef(
     const classes = Style();
 
     const [likesCount, setLikesCount] = useState(1);
-    const [heartIcontOrder, setHeartIcontOrder] = useState(1);
-    const [smileIconOrder, setSmileIconOrder] = useState(1);
-    const [thumsUpIconOrder, setThumsUpIconOrder] = useState(1);
+    const [commentsCount, setCommentsCount] = useState(1);
+    const [sharesCount, setSharesCount] = useState(1);
+    const [likeIconOrder, setLikeIconOrder] = useState(1);
+    const [loveIconOrder, setLoveIconOrder] = useState(1);
+    const [careIconOrder, setCareIconOrder] = useState(1);
 
     useEffect(() => {
       setLikesCount(Math.floor(Math.random() * 1000) + 1);
-      setHeartIcontOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-      setSmileIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-      setThumsUpIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
+      setCommentsCount(Math.floor(Math.random() * 100) + 1);
+      setSharesCount(Math.floor(Math.random() * 10) + 1);
+      setLikeIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
+      setLoveIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
+      setCareIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
     }, []);
 
     const Reactions = () => {
       return (
         <div className={classes.footer__stats}>
           <div>
-            <FavoriteIcon style={{ color: "red", order: `${heartIcontOrder} ` }} />
-            <EmojiEmotionsIcon style={{ color: "orange", order: `${smileIconOrder} ` }} />
-            <ThumbUpAltIcon style={{ color: " #2e81f4", order: `${thumsUpIconOrder} ` }} />
+            <img src={Like} style={{ order: `${likeIconOrder} ` }} />
+            <img src={Love} style={{ order: `${loveIconOrder} ` }} />
+            <img src={Care} style={{ order: `${careIconOrder} ` }} />
           </div>
           <h4>{likesCount}</h4>
+          <section>
+            <h4>{commentsCount} Comments</h4>
+            <h4>{sharesCount} Shares</h4>
+          </section>
         </div>
       );
     };

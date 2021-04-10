@@ -54,17 +54,20 @@ export default makeStyles((theme) => ({
       fontSize: 12,
     },
   },
+
   post__body: {
     width: "100%",
     display: "flex",
     flexDirection: "column",
   },
+
   body__description: {
     display: "flex",
     alignItems: "center",
     padding: 10,
     paddingTop: 5,
   },
+
   body__image: {
     width: "100%",
     display: "flex",
@@ -83,6 +86,7 @@ export default makeStyles((theme) => ({
       },
     },
   },
+
   post__footer: {
     width: "100%",
     display: "flex",
@@ -91,30 +95,49 @@ export default makeStyles((theme) => ({
     padding: 10,
     paddingBottom: 0,
   },
+
   footer__stats: {
     display: "flex",
     alignItems: "center",
     paddingBottom: 10,
     borderBottom: `1px solid ${theme.palette.type === "dark" ? darkSecondary : "lightgrey"}`,
+
     "& > div": {
       display: "flex",
-      "& > .MuiSvgIcon-root": {
-        fontSize: 16,
+      "& > img": {
+        width: 18,
+        height: 18,
       },
     },
+
     "& > h4": {
+      flex: 1,
       color: theme.palette.type === "dark" && textDark,
       fontSize: 14,
-      marginLeft: 2,
+      marginLeft: 5,
       fontWeight: 500,
     },
+
+    "& > section": {
+      display: "flex",
+      alignItems: "center",
+
+      "& > h4": {
+        color: theme.palette.type === "dark" && textDark,
+        fontSize: 13,
+        marginLeft: 10,
+        fontWeight: 500,
+      },
+    },
   },
+
   footer__actions: {
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "center",
     padding: 4,
   },
+
   action__icons: {
     flex: 1,
     display: "flex",
