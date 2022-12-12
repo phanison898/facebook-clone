@@ -10,7 +10,7 @@ const Stories = () => {
 
   useEffect(() => {
     const fetchUsres = async () => {
-      const response = await axios.get("https://breakingbadapi.com/api/characters?limit=10");
+      const response = await axios.get("https://thronesapi.com/api/v2/Characters?limit=10");
       setUsers(response.data);
     };
     fetchUsres();
@@ -18,12 +18,12 @@ const Stories = () => {
 
   return (
     <div className={classes.stories}>
-      {users.map(({ char_id, name, img }) => (
+      {users.map(({ id, fullName, imageUrl }) => (
         <Story
-          key={char_id}
-          bgImage={`https://source.unsplash.com/random/${char_id}`}
-          profileImage={img}
-          title={name}
+          key={id}
+          bgImage={`https://source.unsplash.com/random/${id}`}
+          profileImage={imageUrl}
+          title={fullName}
         />
       ))}
     </div>

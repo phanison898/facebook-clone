@@ -14,7 +14,7 @@ const Contacts = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await axios.get("https://breakingbadapi.com/api/characters");
+      const response = await axios.get("https://thronesapi.com/api/v2/Characters/");
       setUsers(response.data);
     };
     fetchUsers();
@@ -34,15 +34,15 @@ const Contacts = () => {
           <SearchIcon />
           <MoreHorizIcon />
         </div>
-        {users.map(({ char_id, name, img }) => (
+        {users.map(({ id, fullName, imageUrl }) => (
           <InfoBar
-            key={char_id}
+            key={id}
             Source={
-              <Tooltip placement="left" title={name} arrow>
-                <Avatar src={img} size={100} />
+              <Tooltip placement="left" title={fullName} arrow>
+                <Avatar src={imageUrl} size={100} />
               </Tooltip>
             }
-            title={name}
+            title={fullName}
             online={true}
             lastSeen={
               Math.floor(Math.random() * (3 - 1 + 1)) + 1 === 2 &&
