@@ -11,7 +11,7 @@
 
 Building facebook application clone using **`React`** and **`Firebase`**. This build covers the core functionality (`uploading normal text, images & videos`) of original facebook application. The best thing of the build is, it is fully responsive and looks better in most of the devices. It includes dark/light theme toggle feature as well
 
-🔌 **Live Website Link**: <a href="https://phanison-facebook-clone.web.app/">https://phanison-facebook-clone.web.app/</a>
+🔌 **Live Website Link**: <a href="https://phanison-fb-clone.web.app/">https://phanison-fb-clone.web.app/</a>
 
 ---
 
